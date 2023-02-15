@@ -1,4 +1,4 @@
-import sys,threading
+import sys,threading,datetime
 
 from PySide6.QtWidgets import QApplication, QWidget
 
@@ -34,10 +34,10 @@ class mainWindow(QWidget):
         self.ui.label_5.show()
 
     def show_client_data(self,data):
-        #print(data)
         self.ui.textBrowser.ensureCursorVisible()
-        self.ui.textBrowser.append(bytes.decode(data))
-        #self.ui.textBrowser
+        current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
+        self.ui.textBrowser.append("<font size=2 color=\"#47E26B\">"+"<i>" + current_time + "<i>" + "</font>")
+        self.ui.textBrowser.append(bytes.decode(data)+'\n')
 
 
 if __name__ == "__main__":

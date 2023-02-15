@@ -33,7 +33,6 @@ class MyTCPserver(QtCore.QObject):
                 else:
                     data = c.recv(1024)
                     if data:
-                        print(type(data))
                         self.data_signal.emit(data)
                     else:
                         self.inputs.remove(c)
